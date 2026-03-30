@@ -1,10 +1,63 @@
 import './App.css'
+import ToDo from './todo.jsx'
+import DoWork from './work.jsx'
+import TaskDo from "./conditional-rendering.jsx"
+import Kheloyer from "./player.jsx"
+import Singer from './singer.jsx'
+import Library from './library.jsx'
+
+// const time = 50;
+// const players = ['messi', 'neymer', 'ronaldo', 'mbappe', 'barnerdo silva', 'pepe', 'vini', 'benjima', 'kito']
+const singers = [
+  { id: 1, name: "arjit", age: 40 },
+  { id: 2, name: "atif", age: 35 },
+  { id: 3, name: "rahat", age: 55 },
+  { id: 4, name: "kaluda", age: 29 },
+]
+const books = [
+  { id: 1, name: 'English', price: 200 },
+  { id: 2, name: 'Bangla', price: 100 },
+  { id: 3, name: 'Math', price: 300 },
+  { id: 4, name: 'Science', price: 400 },
+  { id: 5, name: 'Fiction', price: 500 },
+]
 
 function App() {
   return (
     <>
-     <h1>Hello React</h1>
-     <Student></Student>
+      <h1>Hello React</h1>
+
+      <Library books={books}></Library>
+
+      {
+        singers.map(singer => <Singer key={singer.id} singer={singer}></Singer>)
+      }
+
+      {/* {
+        players.map(player => <Kheloyer name={player}></Kheloyer>)
+      } */}
+
+
+      {/* <TaskDo task='Class' isDone={true} duration={120}></TaskDo>
+     <TaskDo task='Kola' isDone={false}></TaskDo>
+     <TaskDo task='ghum' isDone={false}></TaskDo>
+     <TaskDo task='Tution, Balucora' isDone={true} duration={70}></TaskDo>
+      <TaskDo task='Tution, Agrabad' isDone={true} duration={80}></TaskDo>
+     <TaskDo task='do not waste' isDone={false}></TaskDo>
+     <TaskDo task='Coding' isDone={true} duration={550}></TaskDo> */}
+      {/* <DoWork work='Make Project' isFit={true} duration={200}></DoWork>
+     <DoWork work='Make another Project' isFit={false} duration={100}></DoWork>
+     <DoWork work='Do Explore' isFit={true} duration={300}></DoWork>
+     <DoWork work='burn cigaret' isFit={true} duration={5}></DoWork>
+     <DoWork work='burn weed' isFit={false} duration={1}></DoWork> */}
+
+      {/* <ToDo task='Learn React' isDone={false} time={time}></ToDo>
+     <ToDo task='revise javascript' isDone={true}></ToDo>
+     <ToDo task='take shower' isDone={false}></ToDo>
+      <ToDo task='burn a cigaret' isDone={true} time={time}></ToDo>
+      <ToDo task='enjoy the enviroment' isDone={true} time={time}></ToDo> */}
+
+      {/* <Student></Student>
      <Student></Student>
      <Person></Person>
      <Person></Person>
@@ -21,27 +74,38 @@ function App() {
      <Player name='Musfiqur' run='5556'></Player>
      <Player name='Muztafize' run='477'></Player>
      <Player name='Taskin' run='1126'></Player>
+     <Salami event='rojar Eid' amount='2000'></Salami>
+     <Salami event='kurbani Eid' amount='200'></Salami> */}
 
-    
+
     </>
   )
 }
-function Player({name, run}){
-  return(
-    <div style={{marginBottom : '30px'}} className='player'>
+function Salami({ event, amount = 0 }) {
+  return (
+    <div className='player' style={{ marginBottom: '30px' }}>
+      <h2>Salami for: {event}</h2>
+      <h3>Amount: {amount} </h3>
+    </div>
+  )
+}
+
+function Player({ name, run }) {
+  return (
+    <div style={{ marginBottom: '30px' }} className='player'>
       <h2>Name: {name} </h2>
       <p>Runs: {run} </p>
     </div>
   )
 }
-function Device (info){
+function Device(info) {
   // console.log(info)
   const fixMargin = {
     margin: "5px"
   }
-  return(
+  return (
     <div style={{
-      background:'lightGray',
+      background: 'lightGray',
       color: 'green',
       border: '2px solid purple',
       margin: '10px',
@@ -57,7 +121,7 @@ function Device (info){
     </div>
   )
 }
-function Developer (props) {
+function Developer(props) {
   // console.log(props)
   return (
     <div style={{
@@ -73,7 +137,7 @@ function Developer (props) {
     </div>
   )
 }
-function Person () {
+function Person() {
   const name = "dragoon"
   const age = 23;
   const personStyle = {
@@ -84,7 +148,7 @@ function Person () {
     <p style={personStyle}>i am a Person {name} {age}</p>
   )
 }
-function Sports () {
+function Sports() {
   return (
     <div>
       <h1>Cricket</h1>
@@ -97,12 +161,12 @@ function Sports () {
     </div>
   )
 }
-function Pet () {
-  return(
+function Pet() {
+  return (
     <p>cats and dogs</p>
   )
 }
-function Student () {
+function Student() {
   return (<>
     <div className='student'>
       <h2>Name</h2>

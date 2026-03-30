@@ -190,7 +190,7 @@
   border-radius: 10px;
 }
 
-.player {
+.player, .singer {
   color: blueviolet;
   background-color: bisque;
   margin: 1px;
